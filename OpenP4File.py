@@ -86,7 +86,12 @@ class Win(QtWidgets.QWidget, ui.Ui_Form):
             self.initP4()
         with self.p4.connect():
             try:
-                sync = self.p4.run('sync')
+                # p4 sync [-f -L -n -N -k -q -r] [-m max] [file[revRange] ...]
+                # p4 sync [-L -n -N -q -s] [-m max] [file[revRange] ...]
+                # p4 sync [-L -n -N -p -q] [-m max] [file[revRange] ...]
+                #         --parallel=threads=N[,batch=N][,batchsize=N][,min=N][,minsize=N]
+                sync = self.p4.run('sync', filename)
+                #print(sync)
                 clientFile = sync[0]['clientFile']
                 self.leLocalFilename.setText(clientFile)
                 pm.openFile(clientFile, o=1, f=1)
