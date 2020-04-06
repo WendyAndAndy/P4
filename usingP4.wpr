@@ -1,0 +1,19 @@
+#!wing
+#!version=7.0
+##################################################################
+# Wing project file                                              #
+##################################################################
+[project attributes]
+proj.directory-list = [{'dirloc': loc('.'),
+                        'excludes': (),
+                        'filter': u'*',
+                        'include_hidden': False,
+                        'recursive': True,
+                        'watch_for_changes': True}]
+proj.file-type = 'shared'
+proj.launch-config = {loc('../MayaDev/0008guiDemo/ui2py.py'): ('project',
+        (u'D:\\git\\WendyAndAndy\\P4\\OpenP4File.ui',
+         '')),
+                      loc('ui2py.py'): ('project',
+        (u'D:\\git\\WendyAndAndy\\P4\\OpenP4File.ui',
+         ''))}
